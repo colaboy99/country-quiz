@@ -29,7 +29,7 @@ export default createStore({
       this.commit("GetQuestionAnswer");
     },
     GetQuestionAnswer(state) {
-      let number = Math.floor(Math.random() * 250);
+      let number = Math.floor(Math.random() * state.AllCountry.length);
       state.Question.capital = state.AllCountry[number].capital[0];
       state.Question.flag = state.AllCountry[number].flags.svg;
       state.Answer.name = state.AllCountry[number].name.common;
@@ -41,7 +41,7 @@ export default createStore({
             (country) => country.name === state.AllCountry[number].name.common
           )
         ) {
-          number = Math.floor(Math.random() * 250);
+          number = Math.floor(Math.random() * state.AllCountry.length);
         }
         state.QuizCountry[i] = { name: state.AllCountry[number].name.common };
       }
@@ -94,7 +94,8 @@ export default createStore({
           "https://api.allorigins.win/raw?url=https://restcountries.com/v3.1/all"
         )
         .then((response) => {
-          commit("SET_COUNTRY", response.data);
+          let result = response.data.filter(item => item.region == "Europe")
+          commit("SET_COUNTRY", result);
         });
     },
   },
