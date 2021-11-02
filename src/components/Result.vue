@@ -48,6 +48,7 @@ export default {
     line-height: 27px;
     color: $primary;
     margin-bottom: 70px;
+    text-align: center;
 
     .result-count {
       font-size: 36px;

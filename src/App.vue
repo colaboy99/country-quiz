@@ -2,7 +2,7 @@
   <div id="container">
     <h1 class="container-title">country quiz</h1>
     <img
-      :class="[QuizScreen==='Result' ? 'display-none' : '', 'container-img']"
+      :class="[QuizScreen === 'Result' ? 'display-none' : '', 'container-img']"
       src="@/assets/image/undraw_adventure_4hum.svg"
       alt="Adventure"
     />
@@ -10,6 +10,11 @@
       <component :is="QuizScreen" />
     </div>
   </div>
+  <p class="footer-copyright">
+    created by
+    <a href="https://github.com/colaboy99" class="github-user" target="Blank">Colaboy99</a> -
+    devChallenges.io
+  </p>
 </template>
 
 <script>
@@ -38,9 +43,6 @@ export default {
 
 <style lang="scss">
 #app {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -51,6 +53,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
   #container {
     width: 100%;
@@ -99,6 +102,21 @@ export default {
       position: relative;
       padding: 68px 32px 32px 32px;
       box-sizing: border-box;
+    }
+  }
+
+  .footer-copyright {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+
+    .github-user {
+      color: #fff;
+      font-weight: 700;
     }
   }
 }
